@@ -5,21 +5,17 @@ import animals from "./data";
 // import cars from "./practice";
 
 const [cat, dog] = animals;
-console.log(cat.name, "and", cat.sound);
+// console.log(cat.name, "and", cat.sound);
 // providing alternative name
 // const { name: catName, sound: catSound } = cat;
 // console.log(catName, "and", catSound);
 const {
-  catname,
-  catsound,
-  catfeedingRequirements: { catFood, catWater },
+  name: catName,
+  sound: catSound,
+  feedingRequirements: { food: catFood, water: catWater },
 } = cat;
 
-const {
-  dogname,
-  dogsound,
-  dogfeedingRequirements: { dogFood = 4, dogWater = 5 },
-} = dog;
+const { name: dogName, sound: dogSound } = dog;
 
 console.log(catFood);
 // const [honda, tesla] = cars;
@@ -29,22 +25,22 @@ console.log(catFood);
 // const hondaTopSpeed = honda.speedStats.topSpeed;
 // const hondaTopColour = honda.coloursByPopularity[0];
 
-ReactDOM.render(
-  <table>
-    <tr>
-      <th>Brand</th>
-      <th>Top Speed</th>
-    </tr>
-    <tr>
-      <td>{tesla.model}</td>
-      <td>{teslaTopSpeed}</td>
-      <td>{teslaTopColour}</td>
-    </tr>
-    <tr>
-      <td>{honda.model}</td>
-      <td>{hondaTopSpeed}</td>
-      <td>{hondaTopColour}</td>
-    </tr>
-  </table>,
-  document.getElementById("root")
-);
+// ReactDOM.render(
+//   <table>
+//     <tr>
+//       <th>Brand</th>
+//       <th>Top Speed</th>
+//     </tr>
+//     <tr>
+//       <td>{tesla.model}</td>
+//       <td>{teslaTopSpeed}</td>
+//       <td>{teslaTopColour}</td>
+//     </tr>
+//     <tr>
+//       <td>{honda.model}</td>
+//       <td>{hondaTopSpeed}</td>
+//       <td>{hondaTopColour}</td>
+//     </tr>
+//   </table>,
+//   document.getElementById("root")
+// );

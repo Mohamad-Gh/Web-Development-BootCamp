@@ -4,17 +4,32 @@ function App() {
   const [contact, setContact] = useState({
     fName: "",
     lName: "",
-    email: "",
+    email: ""
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setContact((prevValue) => {
-      return {
-        ...prevValue,
-        [name]: value,
-      };
+    setContact(prevValue => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prevValue.lName,
+          email: prevValue.email
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prevValue.fName,
+          lName: value,
+          email: prevValue.email
+        };
+      } else if (name === "email") {
+        return {
+          fName: prevValue.fName,
+          lName: prevValue.lName,
+          email: value
+        };
+      }
     });
   }
 
@@ -39,12 +54,11 @@ function App() {
         />
         <input
           onChange={handleChange}
-          type="email"
           name="email"
           value={contact.email}
           placeholder="Email"
         />
-        <button type="submit">Submit</button>
+        <button>Submit</button>
       </form>
     </div>
   );

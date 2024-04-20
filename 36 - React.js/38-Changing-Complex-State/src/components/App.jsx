@@ -4,7 +4,7 @@ function App() {
   const [fullName, setFullName] = useState({ fName: "", lName: "" });
 
   function handleChanges(event) {
-    const { value, name } = event.target;
+    const { value, name, placeholder } = event.target;
     // console.log(value, name);
     setFullName((prevValue) => {
       if (name === "fName") {

@@ -7,8 +7,10 @@ function App() {
   function handleChange(event) {
     setName(event.target.value);
   }
-  function handleSubmit() {
+  function handleSubmit(event) {
     setUserName(name);
+
+    event.preventDefault();
   }
 
   // function handleSubmit() {

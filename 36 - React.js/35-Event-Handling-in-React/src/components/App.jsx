@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function App() {
-  const [isMouseOver, setMouse] = useState();
+  const [isMouseOver, setMouse] = useState(false);
 
   function handleMouseOver() {
     console.log("mouse Over");

@@ -3,25 +3,18 @@ import ToDoItem from "./ToDoItem";
 import InputArea from "./InputArea";
 
 function App() {
-  const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(["Add Item"]);
 
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
-
-  function addItem() {
-    setItems(prevItems => {
-      return [...prevItems, inputText];
+  function addItem(input) {
+    setItems((prevItems) => {
+      return [...prevItems, input].filter((x) => x != "Add Item");
     });
-    setInputText("");
   }
 
   function deleteItem(id) {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       return prevItems.filter((item, index) => {
-        return index !== id;
+        return item !== id;
       });
     });
   }
@@ -31,13 +24,13 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea />
+      <InputArea type="text" clicked={addItem} />
       <div>
         <ul>
           {items.map((todoItem, index) => (
             <ToDoItem
               key={index}
-              id={index}
+              id={todoItem}
               text={todoItem}
               onChecked={deleteItem}
             />

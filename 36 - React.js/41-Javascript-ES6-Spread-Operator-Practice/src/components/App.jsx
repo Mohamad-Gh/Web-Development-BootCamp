@@ -2,15 +2,16 @@ import React, { useState } from "react";
 
 function App() {
   const [content, setContent] = useState("");
-  const [list, setList] = useState(["A Item"]);
+  const [list, setList] = useState(["An Item"]);
   function hangleChange(event) {
     setContent(event.target.value);
   }
 
   function handleButton() {
     setList((prvs) => {
-      return [...prvs, content];
+      return [...prvs.filter((item) => item !== "An Item"), content];
     });
+    setContent("");
   }
   // function handleButton() {
   //   if (list[0] === "A Item") {
@@ -38,8 +39,8 @@ function App() {
       <div>
         <ul>
           {/* <li>{list}</li> */}
-          {list.map((x) => (
-            <li>{x}</li>
+          {list.map((item) => (
+            <li id={item}>{item}</li>
           ))}
         </ul>
       </div>

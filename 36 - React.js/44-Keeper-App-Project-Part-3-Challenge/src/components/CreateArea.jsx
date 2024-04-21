@@ -35,15 +35,7 @@ function CreateArea(props) {
           rows="3"
           value={text}
         />
-        <button
-        // onClick={() => {
-        // props.onAdd({ boxTitle: title, boxText: text });
-        // setTitle("");
-        // setText("");
-        // }}
-        >
-          Add
-        </button>
+        <button>Add</button>
       </form>
     </div>
   );

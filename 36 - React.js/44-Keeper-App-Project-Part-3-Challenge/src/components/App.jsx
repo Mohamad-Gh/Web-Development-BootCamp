@@ -9,7 +9,10 @@ function App() {
 
   function handleAdd(obj) {
     setBox((prvs) => [obj, ...prvs]);
-    console.log(typeof box);
+  }
+
+  function deletBox(boxId) {
+    setBox((prvs) => prvs.filter((element) => element.boxTitle != boxId));
   }
 
   return (
@@ -22,6 +25,7 @@ function App() {
           key={element.boxTitle}
           title={element.boxTitle}
           content={element.boxText}
+          onRemove={deletBox}
         />
       ))}
       <Footer author="MGH" />

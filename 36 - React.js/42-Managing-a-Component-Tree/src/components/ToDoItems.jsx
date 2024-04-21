@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 
 function ToDoItem(props) {
-  const [clickState, setClickState] = useState(false);
+  // Codes for Striking the Items
+  //   const [clickState, setClickState] = useState(false);
+  //   function handleClick() {
+  // setClickState(!clickState);
+  // to practice arrow function
+  // setClickState(() => (clickState ? false : true));
+  // setClickState((prevValue) => !prevValue);
+  // put this one in the li element
+  //   style={{ textDecoration: clickState && "line-through" }}
+  //   }
 
-  function handleClick() {
-    setClickState(!clickState);
-    // to practice arrow function
-    // setClickState(() => (clickState ? false : true));
-    // setClickState((prevValue) => !prevValue);
-  }
-  return (
-    <li
-      style={{ textDecoration: clickState && "line-through" }}
-      onClick={handleClick}
-    >
-      {props.item}
-    </li>
-  );
+  //   To hide the Item
+  //   const [show, setShow] = useState(true);
+
+  //   function handleClick(event) {
+  //     console.log(event.target);
+  //     setShow(!show);
+  //   }
+  // put this in the li element
+  //   style={{ display: !show && "none" }}
+
+
+function handleClick()
+
+
+  return <li onClick={handleClick}>{props.item}</li>;
 }
 
 export default ToDoItem;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import ToDoItem from "./ToDoItems";
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(["Add Item"]);
 
   function handleChange(event) {
     const newValue = event.target.value;
@@ -10,8 +11,11 @@ function App() {
   }
 
   function addItem() {
-    setItems(prevItems => {
-      return [...prevItems, inputText];
+    setItems((prevItems) => {
+      return [
+        inputText,
+        ...prevItems.filter((listItem) => listItem != "Add Item"),
+      ];
     });
     setInputText("");
   }
@@ -29,8 +33,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(todoItem => (
-            <li>{todoItem}</li>
+          {items.map((todoItem) => (
+            <ToDoItem item={todoItem} />
           ))}
         </ul>
       </div>

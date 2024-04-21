@@ -27,7 +27,7 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <Input onChange={handleChange} type="text" value={inputText} />
+        <input onChange={handleChange} type="text" value={inputText} />
         <button onClick={addItem}>
           <span>Add</span>
         </button>
@@ -35,7 +35,7 @@ function App() {
       <div>
         <ul>
           {items.map((todoItem) => (
-            <ToDoItem item={todoItem} />
+            <ToDoItem key={todoItem} item={todoItem} />
           ))}
         </ul>
       </div>

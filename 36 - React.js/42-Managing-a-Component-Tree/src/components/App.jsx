@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ToDoItem from "./ToDoItems";
+import Input from "./Input";
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -26,7 +27,7 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input onChange={handleChange} type="text" value={inputText} />
+        <Input onChange={handleChange} type="text" value={inputText} />
         <button onClick={addItem}>
           <span>Add</span>
         </button>

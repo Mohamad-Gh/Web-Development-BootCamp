@@ -22,11 +22,11 @@ function ToDoItem(props) {
   // put this in the li element
   //   style={{ display: !show && "none" }}
 
-
-function handleClick()
-
-
-  return <li onClick={handleClick}>{props.item}</li>;
+  return (
+    <li id={props.id} onClick={() => props.onChecked(props.id)}>
+      {props.item}
+    </li>
+  );
 }
 
 export default ToDoItem;

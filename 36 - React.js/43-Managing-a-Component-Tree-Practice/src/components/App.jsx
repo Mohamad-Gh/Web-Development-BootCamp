@@ -24,7 +24,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea type="text" clicked={addItem} />
+      <InputArea type="text" onAdd={addItem} />
       <div>
         <ul>
           {items.map((todoItem, index) => (

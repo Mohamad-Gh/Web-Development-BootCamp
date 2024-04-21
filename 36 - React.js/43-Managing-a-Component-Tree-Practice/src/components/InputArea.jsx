@@ -9,10 +9,20 @@ function InputArea(props) {
 
   return (
     <div className="form">
-      <input onChange={handleChange} type={props.type} value={inputText} />
+      <input
+        onKeyDown={(event) => {
+          if (event.key == "Enter") {
+            props.onAdd(inputText);
+            setInputText("");
+          }
+        }}
+        onChange={handleChange}
+        type={props.type}
+        value={inputText}
+      />
       <button
         onClick={() => {
-          props.clicked(inputText);
+          props.onAdd(inputText);
           setInputText("");
         }}
       >

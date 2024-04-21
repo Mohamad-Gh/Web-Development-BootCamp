@@ -11,7 +11,7 @@ function InputArea(props) {
     <div className="form">
       <input
         onKeyDown={(event) => {
-          if (event.key == "Enter") {
+          if (event.key == "Enter" && inputText > "") {
             props.onAdd(inputText);
             setInputText("");
           }

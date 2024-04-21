@@ -7,10 +7,10 @@ import CreateArea from "./CreateArea";
 function App() {
   return (
     <div>
-      <Header />
+      <Header title="Keeper" />
       <CreateArea />
       <Note key={1} title="Note title" content="Note content" />
-      <Footer />
+      <Footer author="MGH" />
     </div>
   );
 }

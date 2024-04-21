@@ -35,6 +35,10 @@ footer {
 footer p {
   color: #ccc;
 }
+
+footer span {
+  color: red;
+}
 .note {
   background: #fff;
   border-radius: 7px;

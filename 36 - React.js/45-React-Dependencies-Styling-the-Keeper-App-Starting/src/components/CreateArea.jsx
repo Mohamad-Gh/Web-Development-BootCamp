@@ -29,23 +29,32 @@ function CreateArea(props) {
     event.preventDefault();
   }
 
+  const [isExpanded, setExpand] = useState(false);
+
+  function showBox() {
+    setExpand(true);
+  }
+
   return (
     <div>
       <form className="create-note">
-        <input
-          name="title"
-          onChange={handleChange}
-          value={note.title}
-          placeholder="Title"
-        />
+        {isExpanded && (
+          <input
+            name="title"
+            onChange={handleChange}
+            value={note.title}
+            placeholder="Title"
+          />
+        )}
         <textarea
+          onClick={showBox}
           name="content"
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          rows="3"
+          rows={isExpanded ? "3" : "1"}
         />
-        <Zoom in={true}>
+        <Zoom in={isExpanded}>
           <Fab onClick={submitNote}>
             <AddIcon />
           </Fab>

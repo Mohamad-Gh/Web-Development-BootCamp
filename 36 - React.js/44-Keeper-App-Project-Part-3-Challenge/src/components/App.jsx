@@ -17,7 +17,7 @@ function App() {
   }
 
   function deletBox(boxId) {
-    setBox((prvs) => prvs.filter((element) => element.title != boxId));
+    setBox((prvs) => prvs.filter((element, id) => id != boxId));
   }
 
   return (
@@ -27,6 +27,7 @@ function App() {
       {box.map((element, indx) => (
         <Note
           key={indx}
+          id={indx}
           title={element.title}
           content={element.content}
           onRemove={deletBox}

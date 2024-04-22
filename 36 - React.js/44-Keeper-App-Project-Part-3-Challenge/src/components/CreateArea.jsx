@@ -1,39 +1,36 @@
 import React, { useState } from "react";
 
 function CreateArea(props) {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+  const [note, setNote] = useState({ title: "", content: "" });
 
-  function handleChangeTitle(event) {
-    setTitle(event.target.value);
-  }
-
-  function handleChangeText(event) {
-    setText(event.target.value);
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setNote((prv) => {
+      return { ...prv, [name]: value };
+    });
   }
 
   return (
     <div>
       <form
         onSubmit={(event) => {
-          props.onAdd({ boxTitle: title, boxText: text });
+          props.onAdd(note);
           event.preventDefault();
-          setText("");
-          setTitle("");
+          setNote({ title: "", content: "" });
         }}
       >
         <input
-          onChange={handleChangeTitle}
+          onChange={handleChange}
           name="title"
           placeholder="Title"
-          value={title}
+          value={note.title}
         />
         <textarea
-          onChange={handleChangeText}
+          onChange={handleChange}
           name="content"
           placeholder="Take a note..."
           rows="3"
-          value={text}
+          value={note.content}
         />
         <button>Add</button>
       </form>

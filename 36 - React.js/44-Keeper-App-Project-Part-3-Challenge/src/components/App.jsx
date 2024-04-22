@@ -5,26 +5,30 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-  const [box, setBox] = useState([{ boxTitle: "", boxText: "" }]);
+  const [box, setBox] = useState([
+    { title: "Note Title", content: "Note Content" },
+  ]);
 
   function handleAdd(obj) {
-    setBox((prvs) => [obj, ...prvs]);
+    setBox((prvs) => [
+      obj,
+      ...prvs.filter((element) => element.title != "Note Title"),
+    ]);
   }
 
   function deletBox(boxId) {
-    setBox((prvs) => prvs.filter((element) => element.boxTitle != boxId));
+    setBox((prvs) => prvs.filter((element) => element.title != boxId));
   }
 
   return (
     <div>
       <Header title="Keeper" />
       <CreateArea onAdd={handleAdd} />
-      {box.map((element) => (
+      {box.map((element, indx) => (
         <Note
-          id={element.boxTitle}
-          key={element.boxTitle}
-          title={element.boxTitle}
-          content={element.boxText}
+          key={indx}
+          title={element.title}
+          content={element.content}
           onRemove={deletBox}
         />
       ))}
